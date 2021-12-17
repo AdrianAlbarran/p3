@@ -25,15 +25,19 @@ public:
 	inline float GetCoordinateX() { return this->coord.getX(); }
 	inline float GetCoordinateY() { return this->coord.getY(); }
 	inline float GetCoordinateZ() { return this->coord.getZ(); }
+	inline Vector3D GetCoordinate() { return this->coord; }
 	inline float GetRedComponent() { return this->color.getR(); }
 	inline float GetGreenComponent() { return this->color.getG(); }
 	inline float GetBlueComponent() { return this->color.getB(); }
+	inline Color GetColor() { return this->color; }
 	inline float GetOrientationX() { return this->orientation.getX(); }
 	inline float GetOrientationY() { return this->orientation.getY(); }
 	inline float GetOrientationZ() { return this->orientation.getZ(); }
+	inline Vector3D GetOrientation() { return this->orientation; }
 	inline float GetOrientationSpeedX() { return this->orientationSpeed.getX(); }
 	inline float GetOrientationSpeedY() { return this->orientationSpeed.getY(); }
 	inline float GetOrientationSpeedZ() { return this->orientationSpeed.getZ(); }
+	inline Vector3D GetOrientationSpeed() { return this->orientationSpeed; }
 	inline float GetSpeedX() { return this->speed.getX(); }
 	inline float GetSpeedY() { return this->speed.getY(); }
 	inline float GetSpeedZ() { return this->speed.getZ(); }
@@ -60,6 +64,6 @@ public:
 	inline void SetSpeedY(float& speedYToSet) { this->speed.setY(speedYToSet); }
 	inline void SetSpeedZ(float& speedZToSet) { this->speed.setZ(speedZToSet); }
 
-	void Update();
+	void Update(const float time);
 
 };

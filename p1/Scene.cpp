@@ -12,11 +12,11 @@ void Scene::Render()
 	}
 }
 
-void Scene::Update()
+void Scene::Update(const double TIME_INCREMENT)
 {
 	for (solidPtr i : gameObjects) 
 	{
-		i->Update();
+		i->Update(TIME_INCREMENT);
 	}
 
 	checkBoundary();

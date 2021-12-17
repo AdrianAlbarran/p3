@@ -1,7 +1,7 @@
 #include "Solid.h"
 
-void Solid::Update() {
-
-	orientation = orientation + (orientationSpeed * 1);
-	coord = coord + speed * 1;
+void Solid::Update(const float time)
+{
+	this->SetPosition(this->GetCoordinate() + this->GetSpeed() * time);
+	this->SetOrientation(this->GetOrientation() + this->GetOrientationSpeed() * time);
 }

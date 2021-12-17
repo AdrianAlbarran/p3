@@ -26,7 +26,7 @@ void Game::Init()
 
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
-	escena.AddGameObject(cameraPtr);
+	activeScene->AddGameObject(cameraPtr);
 
 	//Cubo
 	Vector3D cubeCoord(1.0, 0.0, -2.0);
@@ -36,7 +36,7 @@ void Game::Init()
 	Vector3D cubeSpeed(-0.06, 0.03, 0.0);
 	Cube* cubePtr = new Cube(cubeCoord, cubeColor, cubeOrientation, cubeOrientationSpeed, cubeSpeed, 0.2);
 
-	escena.AddGameObject(cubePtr);
+	activeScene->AddGameObject(cubePtr);
 
 	//Esfera
 	Vector3D sphereCoord(1.0, 0.0, -2.0);
@@ -47,7 +47,7 @@ void Game::Init()
 	Sphere* spherePtr = new Sphere(sphereCoord, sphereColor, sphereOrientation, sphereOrientationSpeed,0.2, 100.0, 100.0);
 	spherePtr->SetSpeed(sphereSpeed);
 
-	escena.AddGameObject(spherePtr);
+	activeScene->AddGameObject(spherePtr);
 
 	//TeaPot
 	//Teapot() : coord(0.0, 0.0, -2.0), teaColor(0.2, 0.3, 0.4), size(0.4), orientation(30, 150, 0) {}
@@ -58,7 +58,8 @@ void Game::Init()
 	Vector3D teaPotSpeed(0.0, 0.05, 0.02);
 	Teapot* teapotPtr = new Teapot(teaPotCoord, teaPotColor, teaPotOrientation, teaPotOrientationSpeed, 0.2);
 	teapotPtr->SetSpeed(teaPotSpeed);
-	escena.AddGameObject(teapotPtr);
+
+	activeScene->AddGameObject(teapotPtr);
 
 	//Prisma
 	Vector3D prismCoord(0.0, 1.0, -3.0);
@@ -69,7 +70,7 @@ void Game::Init()
 	Prism* prismPtr = new Prism(prismCoord, prismColor, prismOrientation, prismOrientationSpeed, 0.8, 0.31, 0.2);
 	prismPtr->SetSpeed(prismSpeed);
 
-	escena.AddGameObject(prismPtr);
+	activeScene->AddGameObject(prismPtr);
 
 	//Toroide
 	Vector3D torusCoord(0.0, -0.7, -2.0);
@@ -80,7 +81,7 @@ void Game::Init()
 	Torus* torusPtr = new Torus(torusCoord, torusColor, torusOrientation, torusOrientationSpeed, 0.1, 0.15, 50, 50);
 	torusPtr->SetSpeed(torusSpeed);
 
-	escena.AddGameObject(torusPtr);
+	activeScene->AddGameObject(torusPtr);
 
 	//Cylinder
 	Vector3D cylinderCoord(1.0, -0.5, -2.5);
@@ -91,7 +92,7 @@ void Game::Init()
 	Cylinder* cylinderPtr = new Cylinder(cylinderCoord, cylinderColor, cylinderOrientation, cylinderOrientationSpeed, 0.2, 0.2, 0.5, 100, 100);
 	cylinderPtr->SetSpeed(cylinderSpeed);
 
-	escena.AddGameObject(cylinderPtr);
+	activeScene->AddGameObject(cylinderPtr);
 	
 	//Objetos Varios
 
@@ -106,9 +107,19 @@ void Game::Init()
 	star->SetOrientationSpeed(Vector3D(3, 2, 1));
 	star->SetSpeed(Vector3D(0.01, 0.02, 0.03));
 	star->paintColor(Color(0.2, 0.5, 0.1));
-	this->escena.AddGameObject(star);
+	this->activeScene->AddGameObject(star);
 	loader->Clear();
 	
+	this->player = new Model();
+	loader->LoadModel("..\\models\\burguer.obj");//models.resources.com
+	*this->player = loader->getModel();
+	this->player->SetPosition(Vector3D(0, 0, 1));
+	this->player->SetOrientation(Vector3D(15, 180, 0));
+	this->player->SetOrientationSpeed(Vector3D(3, 2, 1));
+	this->player->SetSpeed(Vector3D(0.0, 0.0, 0.0));
+	this->player->paintColor(Color(0.8, 0.8, 0.9));
+	this->activeScene->AddGameObject(player);
+	loader->Clear();
 
 
 
@@ -116,16 +127,23 @@ void Game::Init()
 	string texto = "matame";
 	Text* texto1 = new Text(Vector3D(0, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), texto);
 	
-	this->escena.AddGameObject(texto1);
+	this->activeScene->AddGameObject(texto1);
 
 }
 
 void Game::Render() 
 {
-	escena.Render();
+	activeScene->Render();
+
 }
 
 void Game::Update() 
 {
-	escena.Update();
+	milliseconds currentTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+	if ((currentTime.count() - this->initalMilliseconds.count()) - this->lastUpdatedTime > UPDATE_PERIOD)
+	{
+		this->activeScene->Update(TIME_INCREMENT);
+		this->lastUpdatedTime = currentTime.count() - this->initalMilliseconds.count();
+	}
+
 }

@@ -11,7 +11,7 @@ private:
 	using solidPtr = Solid*;
 	vector <solidPtr> gameObjects;
 	Vector3D boundary;
-
+	const double TIME_INCREMENT=0.4;
 	void checkBoundary();
 
 public: 
@@ -22,5 +22,5 @@ public:
 	inline void setBoundary(Vector3D& boundaryToSet) { this->boundary = boundaryToSet; }
 
 	void Render();
-	void Update();
+	void Update(const double TIME_INCREMENT);
 };
