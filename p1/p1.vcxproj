@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Bola.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Colisiones.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cylinder.cpp" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClInclude Include="Bola.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Colisiones.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cylinder.h" />

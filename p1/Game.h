@@ -12,6 +12,7 @@
 #include "ModelLoader.h"
 #include "Text.h"
 #include "Bola.h"
+#include "Colisiones.h"
 
 
 
@@ -29,6 +30,8 @@ private:
 	Scene* activeScene;
 	vector<Scene*> scenes;
 	Model* player;
+	Colisiones colisiones = Colisiones();
+
 
 public:
 	Game() : initalMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0), player(nullptr) { activeScene = new Scene(); }

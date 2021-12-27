@@ -152,6 +152,9 @@ void Game::Init()
 	ModelLoader* loader = new ModelLoader();
 	loader->setScale(1.0f);
 
+
+
+
 	Model* star = new Model();
 	loader->LoadModel("..\\models\\ca.obj");
 	*star = loader->getModel();
@@ -164,8 +167,6 @@ void Game::Init()
 	loader->Clear();
 	
 
-
-
 	this->player = new Model();
 	loader->setScale(2.0f);
 	loader->LoadModel("..\\models\\velvetBar.obj");//models.resources.com
@@ -175,6 +176,7 @@ void Game::Init()
 	this->player->SetOrientationSpeed(Vector3D(0, 0, 0));
 	this->player->SetSpeed(Vector3D(0.0, 0.0, 0.0));
 	this->player->paintColor(Color(0.4, 0.99, 0.0));
+	this->player->setHitbox(loader->getHitbox());
 	this->activeScene->AddGameObject(player);
 	loader->Clear();
 
@@ -191,6 +193,9 @@ void Game::Init()
 	activeScene->AddGameObject(bolaPtr);
 
 
+	//Colisiones
+
+	colisiones = Colisiones(this->player, bolaPtr);
 
 
 	//Texto
@@ -216,7 +221,5 @@ void Game::Update()
 		this->activeScene->Update(TIME_INCREMENT);
 		this->lastUpdatedTime = currentTime.count() - this->initalMilliseconds.count();
 	}
-
-	//Metodo para que frene la plataforma de manera automatica
 
 }

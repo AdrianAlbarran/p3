@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Solid.h"
+#include "Colisiones.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ private:
 	Vector3D boundary;
 	const double TIME_INCREMENT=0.4;
 	void checkBoundary();
+
 
 public: 
 	inline Scene(Vector3D boundary = Vector3D(16, 12, 1)) : boundary(boundary) {}

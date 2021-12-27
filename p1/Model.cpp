@@ -36,3 +36,19 @@ void Model::Render() {
 
 	glPopMatrix();
 }
+
+
+void Model::Update(const float time) {
+
+	this->SetPosition(this->GetCoordinate() + this->GetSpeed() * time);
+	this->SetOrientation(this->GetOrientation() + this->GetOrientationSpeed() * time);
+
+	//maxX
+	this->hitbox[0] = this->hitbox[0] + (this->GetSpeedX() * time);
+	//minX
+	this->hitbox[1] = this->hitbox[1] - (this->GetSpeedX() * time);
+	//maxY
+	this->hitbox[2] = this->hitbox[2] + (this->GetSpeedY() * time);
+	//minY
+	this->hitbox[3] = this->hitbox[3] + (this->GetSpeedY() * time);
+}

@@ -18,6 +18,7 @@ private:
 	Model model;
 	vector <Vector3D> vertVertex;
 	vector <Vector3D> normVertex;
+
 	float maxX;
 	float maxY;
 	float maxZ;
@@ -28,7 +29,8 @@ private:
 	float getHeight() { return(this->maxY - this->minY); }
 	float getLength() { return(this->maxZ - this->minZ); }
 
-	void calcBoundaries(Vector3D vectorPoint);
+
+		void calcBoundaries(Vector3D vectorPoint);
 	Triangle center(Triangle triangle);
 	Vector3D parseObjLineToVector3D(const string& sa);
 	Triangle parseObjTriangle(const string& sa);
@@ -40,5 +42,17 @@ public:
 	void LoadModel(const string& filePath);
 	void Clear();
 
+	/// <summary>
+	vector <float> getHitbox() {
+
+		vector <float> hitBox;
+		hitBox.push_back(maxX);
+		hitBox.push_back(minX);
+		hitBox.push_back(maxY);
+		hitBox.push_back(minY);
+
+		return hitBox;
+	}
+	/// </summary>
 };
 
