@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <chrono>
+#include <cstdlib>
 #include "Teapot.h"
 #include "Cube.h"
 #include "Sphere.h"
@@ -12,6 +13,8 @@
 #include "ModelLoader.h"
 #include "Text.h"
 #include "Bola.h"
+#include "Rectangulo.h"
+
 
 
 

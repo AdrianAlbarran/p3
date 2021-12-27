@@ -150,6 +150,7 @@
     <ClCompile Include="ModelLoader.cpp" />
     <ClCompile Include="p1.cpp" />
     <ClCompile Include="Prism.cpp" />
+    <ClCompile Include="Rectangulo.cpp" />
     <ClCompile Include="RenderUpdateFather.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Solid.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Prism.h" />
+    <ClInclude Include="Rectangulo.h" />
     <ClInclude Include="RenderUpdateFather.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Solid.h" />

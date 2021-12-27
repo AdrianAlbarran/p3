@@ -11,7 +11,8 @@ private:
 	float width;
 
 public:
-	Prism(Vector3D coord, Color color, Vector3D orientation, Vector3D orientationSpeed, float length, float height, float width) : Solid(coord, color, orientation, orientationSpeed), length(length), height(height), width(width) {}
+	Prism(Vector3D coord, Color color, Vector3D orientation, Vector3D orientationSpeed, float length, float height, float width) : 
+		Solid(coord, color, orientation, orientationSpeed), length(length), height(height), width(width) {}
 
 	Prism() : Solid(), length(), height(), width() {}
 

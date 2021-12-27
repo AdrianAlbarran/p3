@@ -70,6 +70,7 @@ void Game::ProcessMouseClick(int button, int state, int x, int y)
 
 void Game::Init() 
 {
+	int v1;
 	//Camara
 
 	Vector3D cameraCoord(8, 6.0, 12.0);
@@ -148,7 +149,7 @@ void Game::Init()
 	*/
 
 	//Objetos Varios
-
+	
 	ModelLoader* loader = new ModelLoader();
 	loader->setScale(1.0f);
 
@@ -190,6 +191,57 @@ void Game::Init()
 
 	activeScene->AddGameObject(bolaPtr);
 
+	//Rectangulos
+
+	Vector3D prismCoord(10.0, 10.0, 0.0);
+	Color prismColor(1, 1, 0);
+	Vector3D prismOrientation(0, 0, 0);
+	Vector3D prismOrientationSpeed(0, 0, 0);
+	Vector3D prismSpeed(0.0, 0.0, 0.0);
+	Rectangulo* prismPtr = new Rectangulo(prismCoord, prismColor, prismOrientation, prismOrientationSpeed, 1.5, 0.5, 0.2,1);
+	prismPtr->SetSpeed(prismSpeed);
+
+	activeScene->AddGameObject(prismPtr);
+
+	Vector3D prismCoord1(5, 10.0, 0.0);
+	Color prismColor1(1, 1, 0);
+	Vector3D prismOrientation1(0, 0, 0);
+	Vector3D prismOrientationSpeed1(0, 0, 0);
+	Vector3D prismSpeed1(0.0, 0.0, 0.0);
+	Rectangulo* prismPtr1 = new Rectangulo(prismCoord1, prismColor1, prismOrientation1, prismOrientationSpeed1, 1.5, 0.5, 0.2, 1);
+	prismPtr->SetSpeed(prismSpeed);
+
+	activeScene->AddGameObject(prismPtr1);
+	Vector3D prismCoord2(2.5, 10.0, 0.0);
+	Color prismColor2(1, 1, 0);
+	Vector3D prismOrientation2(0, 0, 0);
+	Vector3D prismOrientationSpeed2(0, 0, 0);
+	Vector3D prismSpeed2(0.0, 0.0, 0.0);
+	Rectangulo* prismPtr2 = new Rectangulo(prismCoord2, prismColor2, prismOrientation2, prismOrientationSpeed2, 1.5, 0.5, 0.2, 1);
+	prismPtr->SetSpeed(prismSpeed);
+
+	activeScene->AddGameObject(prismPtr2);
+	
+	/*
+	v1 = rand() % 100;
+
+	for (int i = 0; 1 < v1; i++) {
+		int v2;
+		v2 = (rand() % 100) / 100;
+		Vector3D cubeCoord(v2, 0.0, -2.0);
+		Color cubeColor(1, 0.3, 1.0);
+		Vector3D cubeOrientation(30, 100, -30);
+		Vector3D cubeOrientationSpeed(3, 0, 0);
+		Vector3D cubeSpeed(-0.06, 0.03, 0.0);
+
+		Rectangulo* cubePtr = new Rectangulo(cubeCoord, cubeColor, cubeOrientation, cubeOrientationSpeed, cubeSpeed, 0.2,1);
+
+		activeScene->AddGameObject(cubePtr);
+
+
+	}
+
+	*/
 
 
 
@@ -220,3 +272,4 @@ void Game::Update()
 	//Metodo para que frene la plataforma de manera automatica
 
 }
+
