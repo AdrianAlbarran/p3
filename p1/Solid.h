@@ -64,6 +64,6 @@ public:
 	inline void SetSpeedY(float& speedYToSet) { this->speed.setY(speedYToSet); }
 	inline void SetSpeedZ(float& speedZToSet) { this->speed.setZ(speedZToSet); }
 
-	void Update(const float time);
+	virtual void Update(const float time);
 
 };

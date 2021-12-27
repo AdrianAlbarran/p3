@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\Objetos basicos">
+      <UniqueIdentifier>{8feff739-9eb7-487d-876e-9e02b051b23b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Objetos mas complejos">
+      <UniqueIdentifier>{940ab6e0-3542-4bf0-abcc-59083c53e918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Objetos basicos">
+      <UniqueIdentifier>{c4813a52-a64d-45c6-bb43-df8a054270c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Objetos mas complejos">
+      <UniqueIdentifier>{b979c73a-98dc-40fd-aecf-de0f55f0147e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="p1.cpp">
@@ -21,31 +33,13 @@
     <ClCompile Include="Game.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Teapot.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Vector3D.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Sphere.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Solid.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Prism.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Torus.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Cylinder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
@@ -57,24 +51,42 @@
     <ClCompile Include="RenderUpdateFather.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Triangle.cpp">
+    <ClCompile Include="Text.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
+    </ClCompile>
+    <ClCompile Include="Prism.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
+    </ClCompile>
+    <ClCompile Include="Teapot.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
+    </ClCompile>
+    <ClCompile Include="Torus.cpp">
+      <Filter>Archivos de origen\Objetos basicos</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Objetos mas complejos</Filter>
     </ClCompile>
     <ClCompile Include="ModelLoader.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Objetos mas complejos</Filter>
     </ClCompile>
-    <ClCompile Include="Text.cpp">
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Archivos de origen\Objetos mas complejos</Filter>
+    </ClCompile>
+    <ClCompile Include="Bola.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Teapot.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Vector3D.h">
@@ -83,22 +95,7 @@
     <ClInclude Include="Color.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Sphere.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Solid.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Prism.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Torus.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Cylinder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
@@ -110,16 +107,37 @@
     <ClInclude Include="RenderUpdateFather.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Triangle.h">
+    <ClInclude Include="Text.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
+    </ClInclude>
+    <ClInclude Include="Prism.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
+    </ClInclude>
+    <ClInclude Include="Teapot.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Objetos mas complejos</Filter>
     </ClInclude>
     <ClInclude Include="ModelLoader.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Objetos mas complejos</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
+    <ClInclude Include="Torus.h">
+      <Filter>Archivos de encabezado\Objetos basicos</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Archivos de encabezado\Objetos mas complejos</Filter>
+    </ClInclude>
+    <ClInclude Include="Bola.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

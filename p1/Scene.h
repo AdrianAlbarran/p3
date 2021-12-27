@@ -15,7 +15,7 @@ private:
 	void checkBoundary();
 
 public: 
-	inline Scene(Vector3D boundary = Vector3D(8, 6, 4)) : boundary(boundary) {}
+	inline Scene(Vector3D boundary = Vector3D(16, 12, 1)) : boundary(boundary) {}
 	void AddGameObject(Solid* solidPtr);
 
 	inline Vector3D getBoundary() { return boundary; }

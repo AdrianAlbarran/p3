@@ -4,7 +4,58 @@
 void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 {
 
-	std::cout << "Tecla pulsada:" << key << std::endl;
+	cout << "Tecla pulsada: " << key << endl;
+
+	switch (key)
+	{
+	default:
+		cout << key << endl;
+		break;
+	case 'd':
+		this->player->SetSpeed(
+			Vector3D(
+				this->player->GetSpeed().getX() + 0.01,
+				this->player->GetSpeed().getY(),
+				this->player->GetSpeed().getZ())
+		);
+		break;
+
+	case 'a':
+		this->player->SetSpeed(
+			Vector3D(
+				this->player->GetSpeed().getX() - 0.01,
+				this->player->GetSpeed().getY(),
+				this->player->GetSpeed().getZ())
+		);
+		break;
+		
+		//0 actua como la spacebar
+
+	case 's':
+		float speed = 0;
+		this->player->SetSpeedX(speed);
+		/*
+		if (this->player->GetSpeedX() <= -0.005) {
+			this->player->SetSpeed(
+				Vector3D(
+					this->player->GetSpeed().getX() + 0.005,
+					this->player->GetSpeed().getY(),
+					this->player->GetSpeed().getZ())
+			);
+		}
+
+		if (this->player->GetSpeedX() >= 0.005) {
+			this->player->SetSpeed(
+				Vector3D(
+					this->player->GetSpeed().getX() - 0.005,
+					this->player->GetSpeed().getY(),
+					this->player->GetSpeed().getZ())
+			);
+		}
+		*/
+	}
+
+	cout << this->player->GetSpeed().getX() << endl;
 }
 
 void Game::ProcessMouseMovement(int x, int y) 
@@ -21,13 +72,14 @@ void Game::Init()
 {
 	//Camara
 
-	Vector3D cameraCoord(4.0, 3.0, 12.0);
+	Vector3D cameraCoord(8, 6.0, 12.0);
 	Vector3D cameraOrientation(0.0, 0.0, 0.0);
 
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
 	activeScene->AddGameObject(cameraPtr);
 
+	/*
 	//Cubo
 	Vector3D cubeCoord(1.0, 0.0, -2.0);
 	Color cubeColor(1, 0.3, 1.0);
@@ -93,7 +145,8 @@ void Game::Init()
 	cylinderPtr->SetSpeed(cylinderSpeed);
 
 	activeScene->AddGameObject(cylinderPtr);
-	
+	*/
+
 	//Objetos Varios
 
 	ModelLoader* loader = new ModelLoader();
@@ -102,24 +155,41 @@ void Game::Init()
 	Model* star = new Model();
 	loader->LoadModel("..\\models\\ca.obj");
 	*star = loader->getModel();
-	star->SetPosition(Vector3D(1, 1, 1));
+	star->SetPosition(Vector3D(1, 1, 0));
 	star->SetOrientation(Vector3D(30, -60, -10));
 	star->SetOrientationSpeed(Vector3D(3, 2, 1));
-	star->SetSpeed(Vector3D(0.01, 0.02, 0.03));
+	star->SetSpeed(Vector3D(0.0, 0.3, 0.0));
 	star->paintColor(Color(0.2, 0.5, 0.1));
 	this->activeScene->AddGameObject(star);
 	loader->Clear();
 	
+
+
+
 	this->player = new Model();
-	loader->LoadModel("..\\models\\burguer.obj");//models.resources.com
+	loader->setScale(2.0f);
+	loader->LoadModel("..\\models\\velvetBar.obj");//models.resources.com
 	*this->player = loader->getModel();
-	this->player->SetPosition(Vector3D(0, 0, 1));
-	this->player->SetOrientation(Vector3D(15, 180, 0));
-	this->player->SetOrientationSpeed(Vector3D(3, 2, 1));
+	this->player->SetPosition(Vector3D(1, 1, 0));
+	this->player->SetOrientation(Vector3D(0, 0, 0));
+	this->player->SetOrientationSpeed(Vector3D(0, 0, 0));
 	this->player->SetSpeed(Vector3D(0.0, 0.0, 0.0));
-	this->player->paintColor(Color(0.8, 0.8, 0.9));
+	this->player->paintColor(Color(0.4, 0.99, 0.0));
 	this->activeScene->AddGameObject(player);
 	loader->Clear();
+
+	//Bola
+
+	Vector3D bolaCoord(1.0, 2.0, 0.0);
+	Color bolaColor(1, 0.3, 0.0);
+	Vector3D bolaOrientation(30, 10, 0);
+	Vector3D bolaOrientationSpeed(1, 0, 0);
+	Vector3D bolaSpeed(0.06, 0.08, 0.0);
+	Bola* bolaPtr = new Bola(bolaCoord, bolaColor, bolaOrientation, bolaOrientationSpeed, 0.2, 100.0, 100.0);
+	bolaPtr->SetSpeed(bolaSpeed);
+
+	activeScene->AddGameObject(bolaPtr);
+
 
 
 
@@ -139,11 +209,14 @@ void Game::Render()
 
 void Game::Update() 
 {
+
 	milliseconds currentTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
 	if ((currentTime.count() - this->initalMilliseconds.count()) - this->lastUpdatedTime > UPDATE_PERIOD)
 	{
 		this->activeScene->Update(TIME_INCREMENT);
 		this->lastUpdatedTime = currentTime.count() - this->initalMilliseconds.count();
 	}
+
+	//Metodo para que frene la plataforma de manera automatica
 
 }
