@@ -21,7 +21,7 @@ const char TITLE[] = "PARTE 1";
 const GLclampf RED = 0.2;
 const GLclampf GREEN = 0.6;
 const GLclampf BLUE = 0.5;
-const GLclampf ALPHA = 1.0;
+const GLclampf ALPHA = 0;
 
 ///NO CONSTANTES GLOBALES/// 
 

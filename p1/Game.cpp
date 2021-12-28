@@ -116,7 +116,7 @@ void Game::Init()
 
 	//Prisma
 	Vector3D prismCoord(0.0, 1.0, -3.0);
-	Color prismColor(1, 1, 0);
+	Color prismColor(0.47, 0, 1);
 	Vector3D prismOrientation(170, 50, 143);
 	Vector3D prismOrientationSpeed(2, 0, 1);
 	Vector3D prismSpeed(0.02, 0.01, 0.02);
@@ -124,10 +124,10 @@ void Game::Init()
 	prismPtr->SetSpeed(prismSpeed);
 
 	activeScene->AddGameObject(prismPtr);
-
+	
 	//Toroide
 	Vector3D torusCoord(0.0, -0.7, -2.0);
-	Color torusColor(0.3, 0.2, 1.0);
+	Color torusColor(1, 0.3, 0.0);
 	Vector3D torusOrientation(150, 120, 500);
 	Vector3D torusOrientationSpeed(0, 3, 1);
 	Vector3D torusSpeed(0.1, 0.03, 0.0);
@@ -192,9 +192,9 @@ void Game::Init()
 	activeScene->AddGameObject(bolaPtr);
 
 	//Rectangulos
-
-	Vector3D prismCoord(10.0, 10.0, 0.0);
-	Color prismColor(1, 1, 0);
+	/*
+	Vector3D prismCoord(5, 5, 0.0);
+	Color prismColor(1, 0.3, 0);
 	Vector3D prismOrientation(0, 0, 0);
 	Vector3D prismOrientationSpeed(0, 0, 0);
 	Vector3D prismSpeed(0.0, 0.0, 0.0);
@@ -202,9 +202,10 @@ void Game::Init()
 	prismPtr->SetSpeed(prismSpeed);
 
 	activeScene->AddGameObject(prismPtr);
-
-	Vector3D prismCoord1(5, 10.0, 0.0);
-	Color prismColor1(1, 1, 0);
+	
+	
+	Vector3D prismCoord1(1.55, 12.0, 0.0);
+	Color prismColor1(1, 1, 1);
 	Vector3D prismOrientation1(0, 0, 0);
 	Vector3D prismOrientationSpeed1(0, 0, 0);
 	Vector3D prismSpeed1(0.0, 0.0, 0.0);
@@ -212,8 +213,9 @@ void Game::Init()
 	prismPtr->SetSpeed(prismSpeed);
 
 	activeScene->AddGameObject(prismPtr1);
-	Vector3D prismCoord2(2.5, 10.0, 0.0);
-	Color prismColor2(1, 1, 0);
+
+	Vector3D prismCoord2(3.1, 12.0, 0.0);
+	Color prismColor2(1, 1, 2);
 	Vector3D prismOrientation2(0, 0, 0);
 	Vector3D prismOrientationSpeed2(0, 0, 0);
 	Vector3D prismSpeed2(0.0, 0.0, 0.0);
@@ -221,7 +223,48 @@ void Game::Init()
 	prismPtr->SetSpeed(prismSpeed);
 
 	activeScene->AddGameObject(prismPtr2);
+
+
+	Vector3D prismCoord3(12, 12, 0.0);
+	Color prismColor3(1, 1, 0);
+	Vector3D prismOrientation3(0, 0, 0);
+	Vector3D prismOrientationSpeed3(0, 0, 0);
+	Vector3D prismSpeed3(0.0, 0.0, 0.0);
+	prismPtr2 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
+	prismPtr->SetSpeed(prismSpeed);
+
+	activeScene->AddGameObject(prismPtr2);
+	*/
+
+	for (double i = 0.5; i < 16; i=i+1.65) {
+		Vector3D prismCoord3(i, 11.5, 0.0);
+		Color prismColor3(1, 0, 0);
+		Vector3D prismOrientation3(0, 0, 0);
+		Vector3D prismOrientationSpeed3(0, 0, 0);
+		Vector3D prismSpeed3(0.0, 0.0, 0.0);
+		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
+		activeScene->AddGameObject(prismPtr3);
+	}
+	for (double i = 0.5; i < 16; i = i + 1.65) {
+		Vector3D prismCoord3(i, 10.80, 0.0);
+		Color prismColor3(1,0,1);
+		Vector3D prismOrientation3(0, 0, 0);
+		Vector3D prismOrientationSpeed3(0, 0, 0);
+		Vector3D prismSpeed3(0.0, 0.0, 0.0);
+		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
+		activeScene->AddGameObject(prismPtr3);
+	}
+	for (double i = 0.5; i < 16; i = i + 1.65) {
+		Vector3D prismCoord3(i, 10.1, 0.0);
+		Color prismColor3(1, 1, 0);
+		Vector3D prismOrientation3(0, 0, 0);
+		Vector3D prismOrientationSpeed3(0, 0, 0);
+		Vector3D prismSpeed3(0.0, 0.0, 0.0);
+		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
+		activeScene->AddGameObject(prismPtr3);
+	}
 	
+
 	/*
 	v1 = rand() % 100;
 
