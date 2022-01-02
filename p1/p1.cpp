@@ -65,8 +65,10 @@ void reshape(GLsizei width, GLsizei height) {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0f, aspectratio, 1.0f, 200.0f);
+    glOrtho(-9.4, 9.4, -6.2, 6.2, 1, 200);
+    //gluPerspective(60.0f, aspectratio, 1.0f, 200.0f);
     glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 }
 
 void idle() {

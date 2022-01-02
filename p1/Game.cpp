@@ -70,6 +70,9 @@ void Game::ProcessMouseClick(int button, int state, int x, int y)
 
 void Game::Init() 
 {
+
+	Scene* mainScene = new(nothrow) Scene();
+	
 	int v1;
 	//Camara
 
@@ -78,7 +81,7 @@ void Game::Init()
 
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
-	activeScene->AddGameObject(cameraPtr);
+	mainScene->AddGameObject(cameraPtr);
 
 	/*
 	//Cubo
@@ -161,7 +164,7 @@ void Game::Init()
 	star->SetOrientationSpeed(Vector3D(3, 2, 1));
 	star->SetSpeed(Vector3D(0.0, 0.3, 0.0));
 	star->paintColor(Color(0.2, 0.5, 0.1));
-	this->activeScene->AddGameObject(star);
+	mainScene->AddGameObject(star);
 	loader->Clear();
 	
 
@@ -176,7 +179,7 @@ void Game::Init()
 	this->player->SetOrientationSpeed(Vector3D(0, 0, 0));
 	this->player->SetSpeed(Vector3D(0.0, 0.0, 0.0));
 	this->player->paintColor(Color(0.4, 0.99, 0.0));
-	this->activeScene->AddGameObject(player);
+	mainScene->AddGameObject(player);
 	loader->Clear();
 
 	//Bola
@@ -189,7 +192,7 @@ void Game::Init()
 	Bola* bolaPtr = new Bola(bolaCoord, bolaColor, bolaOrientation, bolaOrientationSpeed, 0.2, 100.0, 100.0);
 	bolaPtr->SetSpeed(bolaSpeed);
 
-	activeScene->AddGameObject(bolaPtr);
+	mainScene->AddGameObject(bolaPtr);
 
 	//Rectangulos
 	/*
@@ -243,7 +246,7 @@ void Game::Init()
 		Vector3D prismOrientationSpeed3(0, 0, 0);
 		Vector3D prismSpeed3(0.0, 0.0, 0.0);
 		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
-		activeScene->AddGameObject(prismPtr3);
+		mainScene->AddGameObject(prismPtr3);
 	}
 	for (double i = 0.5; i < 16; i = i + 1.65) {
 		Vector3D prismCoord3(i, 10.80, 0.0);
@@ -252,7 +255,7 @@ void Game::Init()
 		Vector3D prismOrientationSpeed3(0, 0, 0);
 		Vector3D prismSpeed3(0.0, 0.0, 0.0);
 		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
-		activeScene->AddGameObject(prismPtr3);
+		mainScene->AddGameObject(prismPtr3);
 	}
 	for (double i = 0.5; i < 16; i = i + 1.65) {
 		Vector3D prismCoord3(i, 10.1, 0.0);
@@ -261,7 +264,7 @@ void Game::Init()
 		Vector3D prismOrientationSpeed3(0, 0, 0);
 		Vector3D prismSpeed3(0.0, 0.0, 0.0);
 		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
-		activeScene->AddGameObject(prismPtr3);
+		mainScene->AddGameObject(prismPtr3);
 	}
 	
 
@@ -292,8 +295,11 @@ void Game::Init()
 	string texto = "matame";
 	Text* texto1 = new Text(Vector3D(0, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), texto);
 	
-	this->activeScene->AddGameObject(texto1);
+	mainScene->AddGameObject(texto1);
 
+
+	this->scenes.push_back(mainScene);
+	this->activeScene = mainScene;
 }
 
 void Game::Render() 
