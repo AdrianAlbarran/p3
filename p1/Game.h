@@ -14,7 +14,7 @@
 #include "Text.h"
 #include "Bola.h"
 #include "Rectangulo.h"
-
+#include "Jugador.h"
 
 
 
@@ -31,7 +31,11 @@ private:
 	long lastUpdatedTime;
 	Scene* activeScene;
 	vector<Scene*> scenes;
-	Model* player;
+	Jugador* player;
+
+	//Scenes
+	Scene* mainScene = new(nothrow) Scene();
+	Scene* inicioScene = new(nothrow) Scene();
 
 public:
 	Game() : initalMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0), player(nullptr) { activeScene = new Scene(); }
