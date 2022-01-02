@@ -1,7 +1,10 @@
 #pragma once
 #include "Model.h"
 #include <vector>
-#include "Rectangulo.h"
+#include "Colisiones.h"
+//class Colisiones;
+
+class Rectangulo;
 class Jugador : public Model
 {
 private:

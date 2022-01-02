@@ -15,6 +15,7 @@
 #include "Bola.h"
 #include "Rectangulo.h"
 #include "Jugador.h"
+#include "Colisiones.h"
 
 
 

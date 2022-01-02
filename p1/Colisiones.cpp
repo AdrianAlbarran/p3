@@ -1,4 +1,5 @@
 #include "Colisiones.h"
+#include "Jugador.h"
 
 bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 {

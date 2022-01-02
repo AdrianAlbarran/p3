@@ -25,6 +25,12 @@
     <Filter Include="Archivos de origen\Objetos mas complejos">
       <UniqueIdentifier>{b979c73a-98dc-40fd-aecf-de0f55f0147e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Utiles">
+      <UniqueIdentifier>{76690e1e-1b96-4979-a4fb-cc0eeef739ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Utiles">
+      <UniqueIdentifier>{88b75046-f94d-4bc6-a051-850a387be2cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="p1.cpp">
@@ -91,7 +97,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Colisiones.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Utiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +162,7 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Colisiones.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Utiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

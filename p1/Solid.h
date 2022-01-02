@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include "RenderUpdateFather.h"
 
+
 class Solid : public RenderUpdateFather
 {
 private:

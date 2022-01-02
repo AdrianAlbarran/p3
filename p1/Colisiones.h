@@ -1,9 +1,10 @@
 #pragma once
-#include "Solid.h"
-#include "Jugador.h"
+#ifndef Colisiones_H_
+
 #include "Rectangulo.h"
 #include "Bola.h"
 
+class Jugador;
 class Colisiones
 {
 private:
@@ -13,7 +14,7 @@ private:
 
 
 public:
-	Colisiones(Jugador* player) : jugador(player) {}
+	Colisiones(Jugador* player) { jugador = player; }
 
 	inline Jugador* getJugador() { return this->jugador; }
 	bool detectaRectangulo(Bola* bolita, Rectangulo* rectangulo);
@@ -21,3 +22,4 @@ public:
 
 };
 
+#endif // !Colisiones_H_
