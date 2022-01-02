@@ -14,7 +14,7 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 	case 'd':
 		this->player->SetSpeed(
 			Vector3D(
-				this->player->GetSpeed().getX() + 0.01,
+				0.1,
 				this->player->GetSpeed().getY(),
 				this->player->GetSpeed().getZ())
 		);
@@ -23,7 +23,7 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 	case 'a':
 		this->player->SetSpeed(
 			Vector3D(
-				this->player->GetSpeed().getX() - 0.01,
+				-0.1,
 				this->player->GetSpeed().getY(),
 				this->player->GetSpeed().getZ())
 		);
@@ -66,12 +66,16 @@ void Game::ProcessMouseMovement(int x, int y)
 void Game::ProcessMouseClick(int button, int state, int x, int y)
 {
 	std::cout << "Clic: " << button << std::endl;
+	if (activeScene == inicioScene) {
+		this->activeScene = mainScene;
+	}
 }
 
 void Game::Init() 
 {
 
-	Scene* mainScene = new(nothrow) Scene();
+
+
 	
 	int v1;
 	//Camara
@@ -82,6 +86,7 @@ void Game::Init()
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
 	mainScene->AddGameObject(cameraPtr);
+	inicioScene->AddGameObject(cameraPtr);
 
 	/*
 	//Cubo
@@ -155,7 +160,7 @@ void Game::Init()
 	
 	ModelLoader* loader = new ModelLoader();
 	loader->setScale(1.0f);
-
+	/*
 	Model* star = new Model();
 	loader->LoadModel("..\\models\\ca.obj");
 	*star = loader->getModel();
@@ -166,14 +171,14 @@ void Game::Init()
 	star->paintColor(Color(0.2, 0.5, 0.1));
 	mainScene->AddGameObject(star);
 	loader->Clear();
-	
+	*/
 
-
+	// Jugador 
 
 	this->player = new Model();
 	loader->setScale(2.0f);
 	loader->LoadModel("..\\models\\velvetBar.obj");//models.resources.com
-	*this->player = loader->getModel();
+	player =new Jugador( loader->getModel());
 	this->player->SetPosition(Vector3D(1, 1, 0));
 	this->player->SetOrientation(Vector3D(0, 0, 0));
 	this->player->SetOrientationSpeed(Vector3D(0, 0, 0));
@@ -250,7 +255,7 @@ void Game::Init()
 	}
 	for (double i = 0.5; i < 16; i = i + 1.65) {
 		Vector3D prismCoord3(i, 10.80, 0.0);
-		Color prismColor3(1,0,1);
+		Color prismColor3(1,0,0.5);
 		Vector3D prismOrientation3(0, 0, 0);
 		Vector3D prismOrientationSpeed3(0, 0, 0);
 		Vector3D prismSpeed3(0.0, 0.0, 0.0);
@@ -297,9 +302,13 @@ void Game::Init()
 	
 	mainScene->AddGameObject(texto1);
 
+	string texto3 = "Haz Click para empezar";
+	Text* texto2 = new Text(Vector3D(7, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), texto3);
+	inicioScene->AddGameObject(texto2);
 
+	this->scenes.push_back(inicioScene);
 	this->scenes.push_back(mainScene);
-	this->activeScene = mainScene;
+	this->activeScene = inicioScene;
 }
 
 void Game::Render() 

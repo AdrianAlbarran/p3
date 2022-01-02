@@ -142,10 +142,12 @@
   <ItemGroup>
     <ClCompile Include="Bola.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Colisiones.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelLoader.cpp" />
     <ClCompile Include="p1.cpp" />
@@ -164,10 +166,12 @@
   <ItemGroup>
     <ClInclude Include="Bola.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Colisiones.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Jugador.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Prism.h" />

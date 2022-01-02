@@ -11,4 +11,6 @@ void Bola::Update(const float time)
 		float radius = 0;
 		this->SetRadius(radius);
 	}
+
+	if(this->colision->detectaRectangulo(this,))
 }
