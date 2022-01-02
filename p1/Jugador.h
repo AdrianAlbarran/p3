@@ -15,8 +15,8 @@ private:
 public:
 	Jugador(Model model) :vida (3), Model(model){}
 
-	inline vector<Rectangulo*> getVectoR() { return this->rectangulos; }
-	inline void  setVectoR(vector<Rectangulo*> nuevosRectangulos) { rectangulos = nuevosRectangulos; }
+	inline vector<Rectangulo*> getVecRectangulo() { return this->rectangulos; }
+	inline void setVecRectangulo(vector<Rectangulo*> nuevosRectangulos) { this->rectangulos = nuevosRectangulos; }
 	inline int getVida() { return this->vida; }
 	inline void setVida(const int& vidatoset) { vida = vidatoset; }
 };

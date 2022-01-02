@@ -15,6 +15,5 @@ public:
 	bool detectaRectangulo(Bola* bola, Rectangulo* rectangulo);
 	bool dectectaBarra(Bola* bola, Jugador* player);
 
-
 };
 
