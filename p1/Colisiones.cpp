@@ -3,11 +3,12 @@
 
 bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 {
-	///Hacer que funcione de verdad
 	for (Rectangulo* i : this->jugador->getVecRectangulo()) {
-		if ((bola->GetCoordinateX() > (rectangulo->GetCoordinateX() + 0.75) || bola->GetCoordinateX() < (rectangulo->GetCoordinateX() - 0.75)) ||
-			(bola->GetCoordinateY() > (rectangulo->GetCoordinateY() + 0.25) || bola->GetCoordinateY() < (rectangulo->GetCoordinateY() - 0.25)) ||
-			(bola->GetCoordinateZ() > (rectangulo->GetCoordinateZ() + 0.1) || bola->GetCoordinateZ() < (rectangulo->GetCoordinateZ() - 0.1))) {
+		if ((bola->GetCoordinateX() - 0.2> (rectangulo->GetCoordinateX() - 0.75) && bola->GetCoordinateX() + 0.2 < (rectangulo->GetCoordinateX() + 0.75)) &&
+			(bola->GetCoordinateY() + 0.2 > (rectangulo->GetCoordinateY() - 0.25) && bola->GetCoordinateY() - 0.2 < (rectangulo->GetCoordinateY() + 0.25))) 
+		{
+			float newPos = bola->GetCoordinateY() - 0.08 ;
+			bola->SetCoordinateY(newPos);
 			return true;
 		}
 

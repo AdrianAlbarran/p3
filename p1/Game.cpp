@@ -36,7 +36,6 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 		this->player->SetSpeedX(speed);
 	}
 
-	cout << this->player->GetSpeed().getX() << endl;
 }
 
 void Game::ProcessMouseMovement(int x, int y) 
@@ -107,12 +106,10 @@ void Game::Init()
 	mainScene->AddGameObject(bolaPtr);
 
 
-
-
 	//Vector de rectangulos 
 	vector<Rectangulo*> rectangulos;
 
-	for (double i = 0.5; i < 16; i=i+1.65) {
+	/*for (double i = 0.5; i < 16; i=i+1.65) {
 		Vector3D prismCoord3(i, 11.5, 0.0);
 		Color prismColor3(1, 0, 0);
 		Vector3D prismOrientation3(0, 0, 0);
@@ -131,7 +128,7 @@ void Game::Init()
 		Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
 		mainScene->AddGameObject(prismPtr3);
 		rectangulos.push_back(prismPtr3);
-	}
+	}*/
 	for (double i = 0.5; i < 16; i = i + 1.65) {
 		Vector3D prismCoord3(i, 10.1, 0.0);
 		Color prismColor3(1, 1, 0);
@@ -144,6 +141,7 @@ void Game::Init()
 	}
 
 	player->setVecRectangulo(rectangulos);
+	player->setBola(bolaPtr);
 
 	//Texto
 	string texto = "matame";
@@ -157,7 +155,7 @@ void Game::Init()
 
 	this->scenes.push_back(inicioScene);
 	this->scenes.push_back(mainScene);
-	this->activeScene = inicioScene;
+	this->activeScene = mainScene;
 }
 
 void Game::Render() 

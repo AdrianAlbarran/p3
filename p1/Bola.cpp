@@ -11,4 +11,17 @@ void Bola::Update(const float time)
 		float radius = 0;
 		this->SetRadius(radius);
 	}
+
+	if (this->colisionado == true) {
+
+		float a = this->GetSpeedX();
+		//a = a * -1;
+		//this->SetSpeedX(a);
+
+		a = this->GetSpeedY();
+		a = a * -1;
+		this->SetSpeedY(a);
+
+		this->colisionado = false;
+	}
 }

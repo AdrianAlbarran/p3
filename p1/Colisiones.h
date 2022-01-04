@@ -5,6 +5,7 @@
 #include "Bola.h"
 
 class Jugador;
+
 class Colisiones
 {
 private:
