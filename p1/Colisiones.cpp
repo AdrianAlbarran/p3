@@ -7,7 +7,7 @@ bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 {
 
 
-	
+		
 		/*if ((bola->GetCoordinateX() - 0.2> (rectangulo->GetCoordinateX() - 0.75) && bola->GetCoordinateX() + 0.2 < (rectangulo->GetCoordinateX() + 0.75)) &&
 			(bola->GetCoordinateY() + 0.2 > (rectangulo->GetCoordinateY() - 0.25) && bola->GetCoordinateY() - 0.2 < (rectangulo->GetCoordinateY() + 0.25))) 
 		{
@@ -18,18 +18,15 @@ bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 
 		else return false;*/
 
-		if ((bola->GetCoordinateX() - 0.2 > (rectangulo->GetCoordinateX() - 0.75)) && (bola->GetCoordinateX() + 0.2 < (rectangulo->GetCoordinateX() + 0.75))) {
+		if ((bola->GetCoordinateX() - 0.2 > (rectangulo->GetCoordinateX() - 0.85)) && (bola->GetCoordinateX() + 0.2 < (rectangulo->GetCoordinateX() + 0.85))) {
 
 
-			std::cout << (bola->GetCoordinateY() - 0.2 < (rectangulo->GetCoordinateY() + 0.25)) << endl;
-			std::cout << ((rectangulo->GetCoordinateY() - 0.25)) << endl;
-			std::cout << (bola->GetCoordinateY() + 0.2) << endl;
 
 
 
 			if (bola->GetCoordinateY() + 0.2 > (rectangulo->GetCoordinateY() - 0.35) && bola->GetCoordinateY() - 0.2 < (rectangulo->GetCoordinateY() + 0.35)) {
 
-				std::cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
+
 
 				float newPos;
 				bool col = false;
@@ -57,11 +54,21 @@ bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 					bola->colisionEjeY();
 					col = true;
 				}
+				bool destruido;
+				destruido = rectangulo->colision();
+				if (destruido) {
+					return true;
+					//vector<Rectangulo*>::iterator a;
+					//a = remove(jugador->getVecRectangulo().begin(), jugador->getVecRectangulo().end(), rectangulo);
 
+
+	
+
+				}
 			}
 		}
 
-		return true;
+		return false;
 		
 }
 
@@ -75,6 +82,12 @@ bool Colisiones::detectBarra(Bola* bola)
 			newPos = bola->GetCoordinateY() + 0.08;
 			bola->SetCoordinateY(newPos);
 			bola->colisionEjeX();
+			float k = 0.07;
+			if (bola->GetSpeedX() < 0) {
+				k=k * -1;
+			}
+			Vector3D bolaVel = Vector3D((bola->GetSpeedX() * (jugador->GetSpeedX() *5)+k), bola->GetSpeedY() , bola->GetSpeedZ());
+			bola->SetSpeed(bolaVel);
 		}
 
 	}

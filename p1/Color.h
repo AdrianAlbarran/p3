@@ -33,10 +33,11 @@ public:
 	inline float getG() { return g; }
 	inline float getB() { return b; }
 
-	float set(Color color) {
+	void set(Color color) {
 		this->r = clamp(color.r);
 		this->g = clamp(color.g);
 		this->b = clamp(color.b);
+
 	}
 
 	inline float setR(float r) { this->r = clamp(r); }

@@ -3,12 +3,13 @@
 
 #include "Rectangulo.h"
 #include "Bola.h"
-
+#include <vector>
 
 class Jugador;
 
 class Colisiones
 {
+	
 private:
 	Jugador* jugador;
 	//En la clase jugador habria que añadir la clase bola, para poder controlar desde jugador todas las colisiones, el problema es como realizar el update desde esa clase. 

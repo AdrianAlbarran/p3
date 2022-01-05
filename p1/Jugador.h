@@ -12,6 +12,7 @@ private:
 	int vida;
 
 	vector<Rectangulo*> rectangulos;
+
 	Bola* bola;
 	Colisiones colision = Colisiones (this);
 
@@ -23,6 +24,5 @@ public:
 	inline int getVida() { return this->vida; }
 	inline void setVida(const int& vidatoset) { vida = vidatoset; }
 	inline void setBola(Bola* newBola) { this->bola = newBola; }
-
 	void Update(const float time);
 };
