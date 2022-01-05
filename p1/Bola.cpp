@@ -12,16 +12,31 @@ void Bola::Update(const float time)
 		this->SetRadius(radius);
 	}
 
-	if (this->colisionado == true) {
+	//if (this->colisionado == true) {
 
-		float a = this->GetSpeedX();
-		//a = a * -1;
-		//this->SetSpeedX(a);
+	//	float a = this->GetSpeedX();
+	//	//a = a * -1;
+	//	//this->SetSpeedX(a);
 
-		a = this->GetSpeedY();
-		a = a * -1;
-		this->SetSpeedY(a);
+	//	a = this->GetSpeedY();
+	//	a = a * -1;
+	//	this->SetSpeedY(a);
 
-		this->colisionado = false;
-	}
+	//	this->colisionado = false;
+	//}
+}
+
+void Bola::colisionEjeX() {
+	float a;
+
+	a = this->GetSpeedY();
+	a = a * -1;
+	this->SetSpeedY(a);
+}
+
+void Bola::colisionEjeY() {
+	float a = this->GetSpeedX();
+	a = a * -1;
+	this->SetSpeedX(a);
+
 }

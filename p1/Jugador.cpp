@@ -8,11 +8,8 @@ void Jugador::Update(const float time)
 
 	//Colisiones con los rectangulos cubos
 	for (Rectangulo* i : rectangulos) {
-
-		if (colision.detectaRectangulo(this->bola, i) == true) {
-			this->bola->setColisionado(true);
-			break;
-		}
+		colision.detectaRectangulo(this->bola, i);
 	}
 
+	colision.detectBarra(this->bola);
 }

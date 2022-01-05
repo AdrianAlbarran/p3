@@ -96,11 +96,11 @@ void Game::Init()
 
 	//Bola
 
-	Vector3D bolaCoord(1.0, 2.0, 0.0);
+	Vector3D bolaCoord(1.0, 12.0, 0.0);
 	Color bolaColor(1, 0.3, 0.0);
-	Vector3D bolaOrientation(30, 10, 0);
-	Vector3D bolaOrientationSpeed(1, 0, 0);
-	Vector3D bolaSpeed(0.06, 0.08, 0.0);
+	Vector3D bolaOrientation(0, 0, 0);
+	Vector3D bolaOrientationSpeed(0, 0, 0);
+	Vector3D bolaSpeed(0.06, -0.08, 0.0);
 	Bola* bolaPtr = new Bola(bolaCoord, bolaColor, bolaOrientation, bolaOrientationSpeed, 0.2, 100.0, 100.0);
 	bolaPtr->SetSpeed(bolaSpeed);
 	mainScene->AddGameObject(bolaPtr);
@@ -129,7 +129,7 @@ void Game::Init()
 		mainScene->AddGameObject(prismPtr3);
 		rectangulos.push_back(prismPtr3);
 	}*/
-	for (double i = 0.5; i < 16; i = i + 1.65) {
+	for (double i = 0.5; i < 16; i = i + 1.60) {
 		Vector3D prismCoord3(i, 10.1, 0.0);
 		Color prismColor3(1, 1, 0);
 		Vector3D prismOrientation3(0, 0, 0);
@@ -156,6 +156,32 @@ void Game::Init()
 	this->scenes.push_back(inicioScene);
 	this->scenes.push_back(mainScene);
 	this->activeScene = mainScene;
+
+
+
+	///COMPROBACIONES
+
+	//Vector3D prismCoord3(5, 5, 0.0);
+	//Color prismColor3(1, 1, 0);
+	//Vector3D prismOrientation3(0, 0, 0);
+	//Vector3D prismOrientationSpeed3(0, 0, 0);
+	//Vector3D prismSpeed3(0.0, 0.0, 0.0);
+	//Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
+	//mainScene->AddGameObject(prismPtr3);
+	//rectangulos.push_back(prismPtr3);
+
+
+	//player->setVecRectangulo(rectangulos);
+	
+
+	float coordX = 5;
+	float coordY = 5;
+	bolaPtr->SetCoordinateX(coordX);
+	bolaPtr->SetCoordinateY(coordY);
+
+	bolaPtr->SetSpeed(Vector3D(0.00, -0.02, 0.0));
+
+
 }
 
 void Game::Render() 

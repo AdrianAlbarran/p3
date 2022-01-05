@@ -4,6 +4,7 @@
 #include "Rectangulo.h"
 #include "Bola.h"
 
+
 class Jugador;
 
 class Colisiones
@@ -18,8 +19,8 @@ public:
 	Colisiones(Jugador* player) { jugador = player; }
 
 	inline Jugador* getJugador() { return this->jugador; }
-	bool detectaRectangulo(Bola* bolita, Rectangulo* rectangulo);
-	bool detectBarra(Bola* bolita);
+	bool detectaRectangulo(Bola* bola, Rectangulo* rectangulo);
+	bool detectBarra(Bola* bola);
 
 };
 
