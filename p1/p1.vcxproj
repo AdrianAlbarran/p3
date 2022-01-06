@@ -146,6 +146,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cylinder.cpp" />
+    <ClCompile Include="Drop.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="Drop.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Model.h" />

@@ -6,6 +6,7 @@
 #include <vector>
 
 class Jugador;
+class Drop;
 
 class Colisiones
 {
@@ -22,6 +23,7 @@ public:
 	inline Jugador* getJugador() { return this->jugador; }
 	bool detectaRectangulo(Bola* bola, Rectangulo* rectangulo);
 	bool detectBarra(Bola* bola);
+	bool detectDrop(Drop* drop);
 
 };
 

@@ -16,6 +16,7 @@
 #include "Rectangulo.h"
 #include "Jugador.h"
 #include "Colisiones.h"
+#include "Drop.h"
 
 
 
@@ -33,10 +34,15 @@ private:
 	Scene* activeScene;
 	vector<Scene*> scenes;
 	Jugador* player;
+	Text* vidas;
+	Text* puntos;
+	Text* puntosFinales;
 
 	//Scenes
 	Scene* mainScene = new(nothrow) Scene();
 	Scene* inicioScene = new(nothrow) Scene();
+	Scene* deadScene = new(nothrow) Scene();
+	Scene* winScene = new(nothrow) Scene();
 
 public:
 	Game() : initalMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0), player(nullptr) { activeScene = new Scene(); }

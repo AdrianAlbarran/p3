@@ -19,4 +19,35 @@ void Jugador::Update(const float time)
 	
 	rectangulos = nuevosRectangulos;
 	colision.detectBarra(this->bola);
+	colision.detectDrop(this->drop);
+	quitarVida();
 }
+void Jugador::quitarVida()
+{
+	if (bola->GetCoordinateY() < 0.5) {
+		if (this->getVida() > -1) {
+			this->setVida(this->getVida() - 1);
+			respawn();
+		}
+	}
+}
+
+void Jugador::respawn()
+{
+	float newPos = this->GetCoordinateY() +   bola->GetRadius();
+	float velocidad = bola->GetSpeedY() * -1;
+	bola->SetPosition(this->GetCoordinate());
+	bola->SetCoordinateY(newPos);
+	bola->SetSpeedY(velocidad);
+
+}
+
+void Jugador::bonus(Vector3D pos)
+{	
+	int v1;
+	v1 = rand() % 4;
+	if (v1==2) {
+		drop->spawn(pos);
+	}
+}
+

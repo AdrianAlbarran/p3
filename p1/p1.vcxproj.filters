@@ -99,6 +99,9 @@
     <ClCompile Include="Colisiones.cpp">
       <Filter>Archivos de origen\Utiles</Filter>
     </ClCompile>
+    <ClCompile Include="Drop.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="Colisiones.h">
       <Filter>Archivos de encabezado\Utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Drop.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
