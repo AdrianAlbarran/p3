@@ -30,10 +30,13 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 		break;
 		
 		//0 actua como la spacebar
-
 	case 's':
 		float speed = 0;
 		this->player->SetSpeedX(speed);
+		break;
+	
+	
+
 	}
 
 }
@@ -49,7 +52,10 @@ void Game::ProcessMouseClick(int button, int state, int x, int y)
 	//Cambio de escena
 	if (activeScene == inicioScene) {
 		this->activeScene = mainScene;
+
+
 	}
+
 }
 
 void Game::Init() 
@@ -64,22 +70,26 @@ void Game::Init()
 
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
+
+
 	inicioScene->AddGameObject(cameraPtr);
 	mainScene->AddGameObject(cameraPtr);
+	deadScene->AddGameObject(cameraPtr);
+	winScene->AddGameObject(cameraPtr);
 	
 	ModelLoader* loader = new ModelLoader();
 	loader->setScale(1.0f);
 
-	Model* star = new Model();
-	loader->LoadModel("..\\models\\ca.obj");
-	*star = loader->getModel();
-	star->SetPosition(Vector3D(1, 1, 0));
-	star->SetOrientation(Vector3D(30, -60, -10));
-	star->SetOrientationSpeed(Vector3D(3, 2, 1));
-	star->SetSpeed(Vector3D(0.0, 0.3, 0.0));
-	star->paintColor(Color(0.2, 0.5, 0.1));
-	mainScene->AddGameObject(star);
-	loader->Clear();
+	//Model* star = new Model();
+	//loader->LoadModel("..\\models\\ca.obj");
+	//*star = loader->getModel();
+	//star->SetPosition(Vector3D(1, 1, 0));
+	//star->SetOrientation(Vector3D(30, -60, -10));
+	//star->SetOrientationSpeed(Vector3D(3, 2, 1));
+	//star->SetSpeed(Vector3D(0.0, 0.3, 0.0));
+	//star->paintColor(Color(0.2, 0.5, 0.1));
+	//mainScene->AddGameObject(star);
+	//loader->Clear();
 	
 
 	
@@ -96,7 +106,7 @@ void Game::Init()
 
 	//Bola
 
-	Vector3D bolaCoord(1.0, 12.0, 0.0);
+	Vector3D bolaCoord(1, 1.5, 0);
 	Color bolaColor(1, 0.3, 0.0);
 	Vector3D bolaOrientation(0, 0, 0);
 	Vector3D bolaOrientationSpeed(0, 0, 0);
@@ -105,6 +115,15 @@ void Game::Init()
 	bolaPtr->SetSpeed(bolaSpeed);
 	mainScene->AddGameObject(bolaPtr);
 
+	//Drop
+	Vector3D dropCoord(200, 200, 0.0);
+	Color dropColor(0, 0, 1.0);
+	Vector3D dropOrientation(0,90, 0);
+	Vector3D dropOS(0, 0, 0);
+	Vector3D dropS(0, 0, 0);
+	Drop* dropPtr = new Drop(dropCoord, dropColor, dropOrientation,dropOS, 0.2, 0.2, 0.5, 100, 100);
+	dropPtr->SetSpeed(dropS);
+	mainScene->AddGameObject(dropPtr);
 
 	//Vector de rectangulos 
 	vector<Rectangulo*> rectangulos;
@@ -142,21 +161,37 @@ void Game::Init()
 
 	player->setVecRectangulo(rectangulos);
 	player->setBola(bolaPtr);
+	player->setDrop(dropPtr);
 
 	//Texto
-	string texto = "matame";
-	Text* texto1 = new Text(Vector3D(0, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), texto);
+	string vida = to_string(player->getVida());
+	vidas = new Text(Vector3D(0, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), vida);
+	string punto = to_string(player->getPuntos());
+	puntos = new Text(Vector3D(5, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), punto);
 	
-	mainScene->AddGameObject(texto1);
+	string punto2 = "Tus puntos son " + to_string(player->getPuntos());
+	puntosFinales = new Text(Vector3D(6.8, 4.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), punto2);
+	mainScene->AddGameObject(vidas);
+	mainScene->AddGameObject(puntos);
+	deadScene->AddGameObject(puntosFinales);
+	winScene->AddGameObject(puntosFinales);
 
-	string texto3 = "Haz Click para empezar";
-	Text* texto2 = new Text(Vector3D(7, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), texto3);
-	inicioScene->AddGameObject(texto2);
+
+	string empezar = "Haz Click para empezar";
+	Text* inicio = new Text(Vector3D(7, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), empezar);
+	inicioScene->AddGameObject(inicio);
 
 	this->scenes.push_back(inicioScene);
 	this->scenes.push_back(mainScene);
-	this->activeScene = mainScene;
+	this->activeScene = inicioScene;
 
+	string dead = "Game Over";
+	Text* gameover = new Text(Vector3D(6.8, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), dead);
+	deadScene->AddGameObject(gameover);
+
+	string win = "You Win";
+	Text* victoria = new Text(Vector3D(6.8, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), win);
+	winScene->AddGameObject(victoria);
 
 
 	///COMPROBACIONES
@@ -198,7 +233,23 @@ void Game::Update()
 	{
 		this->activeScene->Update(TIME_INCREMENT);
 		this->lastUpdatedTime = currentTime.count() - this->initalMilliseconds.count();
+		if (player->getVida() < 0) {
+			activeScene = deadScene;
+			string punto3 = "Tus puntos son " + to_string(player->getPuntos());
+			puntosFinales->setTexto(punto3);
+		}
+		if (player->getPuntos() == 300) {
+			activeScene = winScene;
+			string punto4 = "Tus puntos son " + to_string(player->getPuntos());
+			puntosFinales->setTexto(punto4);
+
+		}
+		string texto1 = "Vidas: " + to_string(player->getVida());
+		vidas->setTexto(texto1);
+		string texto8 = "Puntos: " + to_string(player->getPuntos());
+		puntos->setTexto(texto8);
 	}
+
 
 	//Metodo para que frene la plataforma de manera automatica
 

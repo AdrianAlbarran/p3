@@ -2,6 +2,7 @@
 #include "Sphere.h"
 #include "Solid.h"
 #include "Scene.h"
+
 using namespace std;
 
 class Bola : public Sphere

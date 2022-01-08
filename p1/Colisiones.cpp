@@ -1,5 +1,6 @@
 #include "Colisiones.h"
 #include "Jugador.h"
+#include "Drop.h"
 #include <iostream>
 
 
@@ -43,9 +44,12 @@ bool Colisiones::detectaRectangulo(Bola* bola, Rectangulo* rectangulo)
 					bola->colisionEjeY();
 					col = true;
 				}
+				int puntos = 5;
+				jugador->setPuntos(jugador->getPuntos() + 5);
 				bool destruido;
 				destruido = rectangulo->colision();
 				if (destruido) {
+					jugador->bonus(rectangulo->GetCoordinate());
 					return true;
 					//vector<Rectangulo*>::iterator a;
 					//a = remove(jugador->getVecRectangulo().begin(), jugador->getVecRectangulo().end(), rectangulo);
@@ -75,6 +79,7 @@ bool Colisiones::detectBarra(Bola* bola)
 			if (bola->GetSpeedX() < 0) {
 				k=k * -1;
 			}
+
 			Vector3D bolaVel = Vector3D((bola->GetSpeedX() * (jugador->GetSpeedX() *5)+k), bola->GetSpeedY() , bola->GetSpeedZ());
 			bola->SetSpeed(bolaVel);
 		}
@@ -84,3 +89,19 @@ bool Colisiones::detectBarra(Bola* bola)
 
 	return true;
 }
+bool Colisiones::detectDrop(Drop* drop) {
+	if ((drop->GetCoordinateX() - 0.2 > (jugador->GetCoordinateX() - 1.65)) && (drop->GetCoordinateX() + 0.2 < (jugador->GetCoordinateX() + 1.65))) {
+
+		if (drop->GetCoordinateY() + 0.2 > (jugador->GetCoordinateY() - 0.1) && drop->GetCoordinateY() - 0.2 < (jugador->GetCoordinateY() + 0.1)) {
+			Vector3D newPos =  Vector3D(200, 200, 0);
+			drop->SetPosition(newPos);
+			float speed = 0;
+			drop->SetSpeedY(speed);
+			jugador->setVida(jugador->getVida() + 1);
+	}
+
+
+	return true;
+}
+}
+

@@ -7,7 +7,7 @@ void Text::Render() {
 	glTranslatef(this->GetCoordinateX(), this->GetCoordinateY(), this->GetCoordinateZ());
 	glRasterPos3d(0, 0, 0);
 	for (char c : this->texto)
-		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, c);
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
 	glPopMatrix();
 
 }
