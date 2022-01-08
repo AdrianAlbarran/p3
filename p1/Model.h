@@ -17,6 +17,6 @@ public:
 	void clear();
 	void paintColor(Color color);
 	void Render();
-	//void Update() {};
+
 };
 
