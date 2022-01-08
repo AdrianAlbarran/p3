@@ -29,8 +29,5 @@ void Rectangulo::Update(const float time)
 	case 3:
 		this->SetColor(Color(1.0, 0, 0));
 		break;
-
-		
-		
 	}
 }

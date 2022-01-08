@@ -6,6 +6,7 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 
 	cout << "Tecla pulsada: " << key << endl;
 
+	//Con este switch simplemente vamos a controlar el movimiento de la plataforma inferior, que es el jugador
 	switch (key)
 	{
 	default:
@@ -29,14 +30,10 @@ void Game::ProcessKeyPressed(unsigned char key, int px, int py)
 		);
 		break;
 		
-		//0 actua como la spacebar
 	case 's':
 		float speed = 0;
 		this->player->SetSpeedX(speed);
 		break;
-	
-	
-
 	}
 
 }
@@ -52,17 +49,11 @@ void Game::ProcessMouseClick(int button, int state, int x, int y)
 	//Cambio de escena
 	if (activeScene == inicioScene) {
 		this->activeScene = mainScene;
-
-
 	}
-
 }
 
 void Game::Init() 
 {
-
-	
-	
 	//Camara
 
 	Vector3D cameraCoord(8, 6.0, 12.0);
@@ -70,33 +61,20 @@ void Game::Init()
 
 	Camera* cameraPtr = new Camera(cameraCoord, cameraOrientation);
 
-
-
+	//Añadimos la camara a las distintas escenas
 	inicioScene->AddGameObject(cameraPtr);
 	mainScene->AddGameObject(cameraPtr);
 	deadScene->AddGameObject(cameraPtr);
 	winScene->AddGameObject(cameraPtr);
 	
+	//Inicializamos el loader de modelos
 	ModelLoader* loader = new ModelLoader();
-	loader->setScale(1.0f);
-
-	//Model* star = new Model();
-	//loader->LoadModel("..\\models\\ca.obj");
-	//*star = loader->getModel();
-	//star->SetPosition(Vector3D(1, 1, 0));
-	//star->SetOrientation(Vector3D(30, -60, -10));
-	//star->SetOrientationSpeed(Vector3D(3, 2, 1));
-	//star->SetSpeed(Vector3D(0.0, 0.3, 0.0));
-	//star->paintColor(Color(0.2, 0.5, 0.1));
-	//mainScene->AddGameObject(star);
-	//loader->Clear();
-	
-
-	
 	loader->setScale(2.0f);
+
+	//Asignaoms la plataforma al jugador
 	loader->LoadModel("..\\models\\velvetBar.obj");//models.resources.com
 	this->player = new Jugador(loader->getModel());
-	this->player->SetPosition(Vector3D(1, 1, 0));
+	this->player->SetPosition(Vector3D(8, 1, 0));
 	this->player->SetOrientation(Vector3D(0, 0, 0));
 	this->player->SetOrientationSpeed(Vector3D(0, 0, 0));
 	this->player->SetSpeed(Vector3D(0.0, 0.0, 0.0));
@@ -105,13 +83,12 @@ void Game::Init()
 	loader->Clear();
 
 	//Bola
-
-	Vector3D bolaCoord(1, 1.5, 0);
+	Vector3D bolaCoord(8, 5, 0);
 	Color bolaColor(1, 0.3, 0.0);
 	Vector3D bolaOrientation(0, 0, 0);
 	Vector3D bolaOrientationSpeed(0, 0, 0);
-	Vector3D bolaSpeed(0.06, -0.08, 0.0);
-	Bola* bolaPtr = new Bola(bolaCoord, bolaColor, bolaOrientation, bolaOrientationSpeed, 0.2, 100.0, 100.0);
+	Vector3D bolaSpeed(0.14, 0.14, 0.0);
+	Bola* bolaPtr = new Bola(bolaCoord, bolaColor, bolaOrientation, bolaOrientationSpeed, 0.2, 100, 100);
 	bolaPtr->SetSpeed(bolaSpeed);
 	mainScene->AddGameObject(bolaPtr);
 
@@ -159,6 +136,8 @@ void Game::Init()
 		rectangulos.push_back(prismPtr3);
 	}
 
+	//Le otorgamos al jugador aquellos objetos que son esenciales
+	//para el funcionamiento de la clase y del propio juego
 	player->setVecRectangulo(rectangulos);
 	player->setBola(bolaPtr);
 	player->setDrop(dropPtr);
@@ -166,11 +145,13 @@ void Game::Init()
 	//Texto
 	string vida = to_string(player->getVida());
 	vidas = new Text(Vector3D(0, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), vida);
+
 	string punto = to_string(player->getPuntos());
 	puntos = new Text(Vector3D(5, 0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), punto);
 	
-	string punto2 = "Tus puntos son " + to_string(player->getPuntos());
-	puntosFinales = new Text(Vector3D(6.8, 4.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), punto2);
+	string strPuntosFinales = "Tus puntos son " + to_string(player->getPuntos());
+	puntosFinales = new Text(Vector3D(6.8, 4.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), strPuntosFinales);
+
 	mainScene->AddGameObject(vidas);
 	mainScene->AddGameObject(puntos);
 	deadScene->AddGameObject(puntosFinales);
@@ -193,30 +174,6 @@ void Game::Init()
 	Text* victoria = new Text(Vector3D(6.8, 6.0, 0), Color(0.5, 0.2, 0), Vector3D(0, 0, 0), win);
 	winScene->AddGameObject(victoria);
 
-
-	///COMPROBACIONES
-
-	//Vector3D prismCoord3(5, 5, 0.0);
-	//Color prismColor3(1, 1, 0);
-	//Vector3D prismOrientation3(0, 0, 0);
-	//Vector3D prismOrientationSpeed3(0, 0, 0);
-	//Vector3D prismSpeed3(0.0, 0.0, 0.0);
-	//Rectangulo* prismPtr3 = new Rectangulo(prismCoord3, prismColor3, prismOrientation3, prismOrientationSpeed3, 1.5, 0.5, 0.2, 1);
-	//mainScene->AddGameObject(prismPtr3);
-	//rectangulos.push_back(prismPtr3);
-
-
-	//player->setVecRectangulo(rectangulos);
-	
-
-	float coordX = 5;
-	float coordY = 5;
-	bolaPtr->SetCoordinateX(coordX);
-	bolaPtr->SetCoordinateY(coordY);
-
-	bolaPtr->SetSpeed(Vector3D(0.07, 0.07, 0.0));
-
-
 }
 
 void Game::Render() 
@@ -233,25 +190,24 @@ void Game::Update()
 	{
 		this->activeScene->Update(TIME_INCREMENT);
 		this->lastUpdatedTime = currentTime.count() - this->initalMilliseconds.count();
+
+		//Control de los textos
 		if (player->getVida() < 0) {
 			activeScene = deadScene;
-			string punto3 = "Tus puntos son " + to_string(player->getPuntos());
-			puntosFinales->setTexto(punto3);
+			string strPuntosFinales = "Tus puntos son " + to_string(player->getPuntos());
+			puntosFinales->setTexto(strPuntosFinales);
 		}
 		if (player->getPuntos() == 300) {
 			activeScene = winScene;
-			string punto4 = "Tus puntos son " + to_string(player->getPuntos());
-			puntosFinales->setTexto(punto4);
+			string strPuntosFinales = "Tus puntos son " + to_string(player->getPuntos());
+			puntosFinales->setTexto(strPuntosFinales);
 
 		}
-		string texto1 = "Vidas: " + to_string(player->getVida());
-		vidas->setTexto(texto1);
-		string texto8 = "Puntos: " + to_string(player->getPuntos());
-		puntos->setTexto(texto8);
+		string strVidas = "Vidas: " + to_string(player->getVida());
+		vidas->setTexto(strVidas);
+		string strPuntos = "Puntos: " + to_string(player->getPuntos());
+		puntos->setTexto(strPuntos);
 	}
-
-
-	//Metodo para que frene la plataforma de manera automatica
 
 }
 

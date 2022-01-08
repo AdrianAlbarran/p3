@@ -31,35 +31,20 @@
     <Filter Include="Archivos de origen\Utiles">
       <UniqueIdentifier>{88b75046-f94d-4bc6-a051-850a387be2cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Objetos del escenario">
+      <UniqueIdentifier>{b1ef9465-4a4b-46b0-9c16-2cffd6d3eb32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Juego y escenas">
+      <UniqueIdentifier>{4a2379d0-26b3-4328-8df5-62950043aca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Juego y escenas">
+      <UniqueIdentifier>{f1feec67-a9cf-4e7e-8596-263adf27fdc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Objetos del escenario">
+      <UniqueIdentifier>{757ceb33-920d-4789-9200-e1b30c052ccb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="p1.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3D.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Solid.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderUpdateFather.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Cylinder.cpp">
       <Filter>Archivos de origen\Objetos basicos</Filter>
     </ClCompile>
@@ -87,47 +72,50 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Archivos de origen\Objetos mas complejos</Filter>
     </ClCompile>
-    <ClCompile Include="Bola.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangulo.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Jugador.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Colisiones.cpp">
       <Filter>Archivos de origen\Utiles</Filter>
     </ClCompile>
-    <ClCompile Include="Drop.cpp">
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Archivos de origen\Utiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Solid.cpp">
+      <Filter>Archivos de origen\Utiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Archivos de origen\Utiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Archivos de origen\Juego y escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Archivos de origen\Juego y escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="p1.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Bola.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="Drop.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="Jugador.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderUpdateFather.cpp">
+      <Filter>Archivos de origen\Utiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangulo.cpp">
+      <Filter>Archivos de origen\Objetos del escenario</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3D.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Solid.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderUpdateFather.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Cube.h">
       <Filter>Archivos de encabezado\Objetos basicos</Filter>
     </ClInclude>
@@ -155,20 +143,44 @@
     <ClInclude Include="Triangle.h">
       <Filter>Archivos de encabezado\Objetos mas complejos</Filter>
     </ClInclude>
-    <ClInclude Include="Bola.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangulo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Jugador.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Colisiones.h">
       <Filter>Archivos de encabezado\Utiles</Filter>
     </ClInclude>
+    <ClInclude Include="Bola.h">
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Archivos de encabezado\Utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Archivos de encabezado\Utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderUpdateFather.h">
+      <Filter>Archivos de encabezado\Utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Solid.h">
+      <Filter>Archivos de encabezado\Utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugador.h">
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
     <ClInclude Include="Drop.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangulo.h">
+      <Filter>Archivos de encabezado\Objetos del escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Archivos de encabezado\Juego y escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Archivos de encabezado\Juego y escenas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

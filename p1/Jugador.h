@@ -7,6 +7,8 @@
 
 class Jugador : public Model
 {
+
+	//Esta clase la utilizamos para controlar la barra, a la vez controlamos todas las colisiones que se pueden dar entre objetos
 private:
 
 	int puntos = 0;
@@ -21,6 +23,7 @@ public:
 	Jugador(Model model) :vida (3), Model(model){}
 
 	inline vector<Rectangulo*> getVecRectangulo() { return this->rectangulos; }
+	//Setters & Getters
 	inline void setVecRectangulo(vector<Rectangulo*> nuevosRectangulos) { this->rectangulos = nuevosRectangulos; }
 	inline int getVida() { return this->vida; }
 	inline int getPuntos() { return this->puntos; }
@@ -28,6 +31,7 @@ public:
 	inline void setVida(const int& vidatoset) { vida = vidatoset; }
 	inline void setBola(Bola* newBola) { this->bola = newBola; }
 	inline void setDrop(Drop* newDrop) { this->drop = newDrop; }
+
 	void Update(const float time);
 	void quitarVida();
 	void respawn();

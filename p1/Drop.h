@@ -10,7 +10,7 @@ public:
 		Cylinder(coord, color, orientation, orientationSpeed, rBase, rUpperside, height, slices, stacks) {};
 	
 	void Update(const float time);
-
+	//Metodo para desplazaar al drop a la zona deseada
 	void spawn(Vector3D pos);
 
 

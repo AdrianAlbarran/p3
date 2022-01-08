@@ -13,6 +13,8 @@ public:
 		Sphere(coord, color, orientation, orientationSpeed, radius, slices, slacks) {}
 
 	void Update(const float time);
+
+	//Metodos para cambiar la velocidad de la bola de disntintas maneras dependiendo de por donde colisione
 	void colisionEjeX();
 	void colisionEjeY();
 
